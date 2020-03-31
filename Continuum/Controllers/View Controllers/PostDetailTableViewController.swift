@@ -9,6 +9,14 @@
 import UIKit
 
 class PostDetailTableViewController: UITableViewController {
+    
+    // MARK: - Properties
+    
+    var post: Post? {
+        didSet {
+            let _ = "delete me"
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

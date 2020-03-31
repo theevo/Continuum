@@ -34,15 +34,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="298" id="Kz4-6n-aIh">
-                                <rect key="frame" x="0.0" y="28" width="375" height="298"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="477" id="Kz4-6n-aIh" customClass="PostTableViewCell" customModule="Continuum" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="477"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kz4-6n-aIh" id="oVv-H1-e3k">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="298"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="477"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="aVe-HC-Jjy">
+                                            <rect key="frame" x="19" y="11" width="337.5" height="455"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="225" image="corgi" translatesAutoresizingMaskIntoConstraints="NO" id="KZb-l3-aar">
+                                                    <rect key="frame" x="0.0" y="0.0" width="337.5" height="337.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="KZb-l3-aar" secondAttribute="height" multiplier="1:1" id="o2t-6x-BWu"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="275" text="(Caption)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ci-HI-gJx">
+                                                    <rect key="frame" x="0.0" y="346.5" width="72" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="rfZ-Eh-ypy"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="300" text="Comments: (Comment Count)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcl-Tc-DOp">
+                                                    <rect key="frame" x="0.0" y="391.5" width="230.5" height="63.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="kVl-vh-d3C"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KZb-l3-aar" firstAttribute="top" secondItem="aVe-HC-Jjy" secondAttribute="topMargin" id="3Az-pn-HrO"/>
+                                                <constraint firstItem="KZb-l3-aar" firstAttribute="width" secondItem="aVe-HC-Jjy" secondAttribute="width" id="T3g-Wj-vpG"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="aVe-HC-Jjy" firstAttribute="centerX" secondItem="oVv-H1-e3k" secondAttribute="centerX" id="3sO-BH-m08"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="aVe-HC-Jjy" secondAttribute="bottom" id="dEn-Sr-UMR"/>
+                                        <constraint firstItem="aVe-HC-Jjy" firstAttribute="top" secondItem="oVv-H1-e3k" secondAttribute="topMargin" id="iBz-P0-EfV"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstItem="aVe-HC-Jjy" firstAttribute="width" secondItem="Kz4-6n-aIh" secondAttribute="width" multiplier="0.9" id="VCO-KS-pNC"/>
+                                </constraints>
                                 <connections>
-                                    <segue destination="5bi-yA-DIO" kind="show" id="VWZ-92-XYI"/>
+                                    <outlet property="captionLabel" destination="1ci-HI-gJx" id="gCJ-NJ-9rA"/>
+                                    <outlet property="commentCountLabel" destination="jcl-Tc-DOp" id="N1B-2o-whF"/>
+                                    <outlet property="photoImageView" destination="KZb-l3-aar" id="3iY-B7-wP3"/>
+                                    <segue destination="5bi-yA-DIO" kind="show" identifier="toPostDetailVC" id="VWZ-92-XYI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -152,4 +198,7 @@
             <point key="canvasLocation" x="288.80000000000001" y="-409.7451274362819"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="corgi" width="2845" height="2845"/>
+    </resources>
 </document>
