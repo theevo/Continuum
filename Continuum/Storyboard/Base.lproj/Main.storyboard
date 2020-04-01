@@ -41,7 +41,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="477"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="aVe-HC-Jjy">
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="aVe-HC-Jjy">
                                             <rect key="frame" x="19" y="11" width="337.5" height="455"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="225" image="corgi" translatesAutoresizingMaskIntoConstraints="NO" id="KZb-l3-aar">
@@ -60,7 +60,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="300" text="Comments: (Comment Count)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcl-Tc-DOp">
-                                                    <rect key="frame" x="0.0" y="435" width="230.5" height="20"/>
+                                                    <rect key="frame" x="0.0" y="435" width="337.5" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="kVl-vh-d3C"/>
                                                     </constraints>
