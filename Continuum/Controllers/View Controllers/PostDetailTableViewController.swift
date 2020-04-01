@@ -14,6 +14,7 @@ class PostDetailTableViewController: UITableViewController {
     
     var post: Post? {
         didSet {
+            loadViewIfNeeded()
             updateViews()
         }
     }
