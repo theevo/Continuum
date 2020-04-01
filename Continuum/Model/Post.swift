@@ -2,8 +2,8 @@
 //  Post.swift
 //  Continuum
 //
-//  Created by theevo on 3/31/20.
-//  Copyright © 2020 trevorAdcock. All rights reserved.
+//  Created by Theo Vora on 3/31/20.
+//  Copyright © 2020 studio awaken. All rights reserved.
 //
 
 import UIKit
