@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC31B8A22435407800AFF50A /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31B8A12435407800AFF50A /* SearchableRecord.swift */; };
 		AC570BCA2433D36A00F8120A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC570BC92433D36A00F8120A /* CloudKit.framework */; };
 		AC570BD12433E2D400F8120A /* PostListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC570BD02433E2D400F8120A /* PostListTableViewController.swift */; };
 		AC570BD32433E33A00F8120A /* PostDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC570BD22433E33A00F8120A /* PostDetailTableViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC31B8A12435407800AFF50A /* SearchableRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
 		AC570BC72433D2EC00F8120A /* Continuum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Continuum.entitlements; sourceTree = "<group>"; };
 		AC570BC92433D36A00F8120A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		AC570BD02433E2D400F8120A /* PostListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListTableViewController.swift; sourceTree = "<group>"; };
@@ -83,13 +85,14 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		AC570BCD2433DB6E00F8120A /* Model */ = {
+		AC570BCD2433DB6E00F8120A /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				AC570BD42433E58300F8120A /* Post.swift */,
 				AC570BD62433EE9400F8120A /* Comment.swift */,
+				AC31B8A12435407800AFF50A /* SearchableRecord.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		AC570BCE2433E2B600F8120A /* Controllers */ = {
@@ -159,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				AC570BCE2433E2B600F8120A /* Controllers */,
-				AC570BCD2433DB6E00F8120A /* Model */,
+				AC570BCD2433DB6E00F8120A /* Models */,
 				AC570BCC2433D97600F8120A /* Storyboard */,
 				AC570BCB2433D96D00F8120A /* Resources */,
 			);
@@ -248,6 +251,7 @@
 				AC570BE224342A5900F8120A /* DateExtension.swift in Sources */,
 				AC570BDD2433F18E00F8120A /* PostError.swift in Sources */,
 				AC570BDA2433F01D00F8120A /* PostController.swift in Sources */,
+				AC31B8A22435407800AFF50A /* SearchableRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -36,3 +36,11 @@ class Post {
         self.photo = photo // must be last, because this is computed property
     }
 }
+
+extension Post: SearchableRecord {
+    func matchesSearchTerm(searchTerm: String) -> Bool {
+        return caption.lowercased().contains(searchTerm.lowercased())
+    }
+    
+    
+}

@@ -10,15 +10,32 @@ import UIKit
 
 class PostListTableViewController: UITableViewController {
     
-    // MARK: - Lifecycle Methods
+    // MARK: - Properties
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+    var resultsArray: [Post] = []
+    var isSearching: Bool = false
+    var dataSource: [SearchableRecord] {
+        get {
+            isSearching ? resultsArray : PostController.shared.posts
+        }
     }
     
     
+    // MARK: - Outlets
+    
+    @IBOutlet weak var captionsSearchBar: UISearchBar!
+    
+    
+    // MARK: - Lifecycle Methods
+    
+    override func viewWillAppear(_ animated: Bool) {
+        resultsArray = PostController.shared.posts
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        captionsSearchBar.delegate = self
 
     }
     
@@ -26,13 +43,13 @@ class PostListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PostController.shared.posts.count
+        return dataSource.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? PostTableViewCell else { return UITableViewCell() }
         
-        let post = PostController.shared.posts[indexPath.row]
+        let post = dataSource[indexPath.row] as? Post
         
         cell.post = post
         
@@ -49,10 +66,36 @@ class PostListTableViewController: UITableViewController {
                 let destinationVC = segue.destination as? PostDetailTableViewController
                 else { return }
             
-            let post = PostController.shared.posts[indexPath.row]
+            let post = dataSource[indexPath.row] as? Post
             
             destinationVC.post = post
         }
     }
+} // end class
 
-}
+
+extension PostListTableViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if !searchText.isEmpty {
+            // search for captions?
+            resultsArray = PostController.shared.posts.filter { $0.matchesSearchTerm(searchTerm: searchText) }
+        } else {
+            resultsArray = PostController.shared.posts
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        captionsSearchBar.text = ""
+        resultsArray = PostController.shared.posts
+        tableView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        isSearching = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        isSearching = false
+    }
+} // end extension
